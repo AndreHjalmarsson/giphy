@@ -1,0 +1,22 @@
+/*
+ * This file is part of Giphy.
+ *
+ * (c) Yrgo, högre yrkesutbildning Göteborg.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.not-found {
+  display: none;
+  font-size: .9em;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+  text-align: center;
+
+  &.not-found--active {
+    display: block;
+    opacity: 1;
+  }
+}
