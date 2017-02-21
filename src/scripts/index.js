@@ -1,10 +1,8 @@
+
+import App from './App.js';
+
 let LOADED = false;
 
-/**
- * Bootstrap the application on load.
- *
- * @return {void}
- */
 function bootstrap () {
   // We don't want to load our application twice.
   if (LOADED) {
@@ -13,7 +11,7 @@ function bootstrap () {
 
   LOADED = true;
 
-  console.log('The Giphy application has been loaded.');
+  window.app = new App();
 
   // When the application is loaded we remove the event listeners.
   document.removeEventListener('DOMContentLoaded', bootstrap);

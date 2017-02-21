@@ -1,22 +1,22 @@
 import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
+import uglify from 'rollup-plugin-uglify';
 import resolve from 'rollup-plugin-node-resolve';
-import ulgify from 'rollup-plugin-uglify';
+import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-  entry: 'input.js',
-  dest: 'output.js',
+  entry: 'src/scripts/index.js',
+  dest: 'public/assets/scripts/giphy.js',
   format: 'iife',
   sourceMap: true,
   plugins: [
     babel({
-      exclude: 'node_moules/**'
+      exclude: 'node_modules/**'
     }),
     commonjs(),
     resolve({
-    jsnext: true,
-    browser: true
-  }),
-  uglify()
+      jsnext: true,
+      browser: true
+    }),
+    (process.env.NODE_ENV === 'production' && uglify())
   ]
 };
